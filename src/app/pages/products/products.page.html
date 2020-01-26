@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-list>
+    <ion-item *ngFor="let response of response" routerLink="/product/{{response.id}}" >
+
+      {{response.id}}
+      {{response.name}}
+      {{response.image}}
+
+
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-input placeholder="Enter Input 1 "></ion-input>
+  <ion-input placeholder="Enter Input 2"></ion-input>
+
+  <ion-button expand="block" (click)="add()"> add a new product</ion-button>
+
+
+</ion-content>

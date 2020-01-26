@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>product</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  {{product.id}}
+  {{product.name}}
+
+  <ion-item *ngFor="let desc of description" routerLink="/product-description-detail/{{product.id}}/description/{{desc.id}}">
+    {{desc.id}}
+    {{desc.brightness}}
+  </ion-item>
+
+  <ion-button (click)="test()"> test </ion-button>
+
+
+
+</ion-content>

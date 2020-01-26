@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>product-description-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  {{result.brightness}}
+
+  <ion-item>
+    <ion-range min="0" max="100" color="secondary" [(ngModel)]="result.brightness">
+      <ion-label slot="start">0</ion-label>
+      <ion-label slot="end">100</ion-label>
+    </ion-range>
+  </ion-item>
+
+</ion-content>
