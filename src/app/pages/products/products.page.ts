@@ -30,7 +30,7 @@ export class ProductsPage implements OnInit {
 // it works
   add() {
     let product = new Product();
-    product.id = 1;
+    product.id = Math.floor(Math.random() * 800) + 10;
     product.name = 'new name';
     product.description = [{id: 54  , brightness: 67} , {id: 55  , brightness: 67}];
     this.productService.addProduct(product);

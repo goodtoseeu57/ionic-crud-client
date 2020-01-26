@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Product} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class ProductService {
       image:
           'image 1',
       description:
-          [{ id : 5 , brightness: 48} , { id : 6 , brightness: 48} ]
+          [{id: 5, brightness: 48}, {id: 6, brightness: 48}]
     },
     {
       id: 2,
@@ -21,7 +22,7 @@ export class ProductService {
       image:
           'image 2',
       description:
-          [{ id : 7 , brightness: 48} , { id : 8 , brightness: 48} ]
+          [{id: 7, brightness: 48}, {id: 8, brightness: 48}]
     },
     {
       id: 3,
@@ -29,11 +30,12 @@ export class ProductService {
       image:
           'image 3',
       description:
-          [{ id : 9 , brightness: 48} , { id : 10 , brightness: 48} ]
+          [{id: 9, brightness: 48}, {id: 10, brightness: 48}]
     }
   ];
 
-  constructor() { }
+  constructor() {
+  }
 
   getProducts(): any {
     return this.products;
@@ -49,7 +51,7 @@ export class ProductService {
     return product;
   }
 
-  getProductDescriptionId(id: number , descriptionId): any {
+  getProductDescriptionId(id: number, descriptionId): any {
     let product: any;
     let descriptions: any;
     let description: any;
@@ -70,5 +72,21 @@ export class ProductService {
 
   addProduct(v): any {
     this.products.push(v);
+  }
+
+  updateProduct(product: Product) {
+    let descriptions: any;
+    this.products.map((a, index) => {
+      if (a.id === product.id) {
+        descriptions = product.description[0];
+
+        a.description.forEach((res) => {
+          if (res.id === descriptions.id) {
+            res.brightness = descriptions.brightness;
+          }
+        });
+      }
+    });
+
   }
 }
